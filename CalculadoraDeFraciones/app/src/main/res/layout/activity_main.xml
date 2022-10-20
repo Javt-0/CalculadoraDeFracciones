@@ -6,13 +6,157 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/numerador1"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="235dp"
+        android:layout_marginEnd="35dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/denominador1"
+        app:layout_constraintEnd_toStartOf="@+id/numerador2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/numerador2"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="97dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/denominador2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numerador1"
+        app:layout_constraintTop_toBottomOf="@+id/denSalida" />
+
+    <EditText
+        android:id="@+id/denominador2"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="44dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMulti"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/denominador1"
+        app:layout_constraintTop_toBottomOf="@+id/numerador2" />
+
+    <EditText
+        android:id="@+id/denominador1"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="44dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnResta"
+        app:layout_constraintEnd_toStartOf="@+id/denominador2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numerador1" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/numSalida"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="165dp"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/denSalida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/denSalida"
+        android:layout_width="70dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginEnd="165dp"
+        android:layout_marginBottom="48dp"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/numerador2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numSalida" />
+
+    <Button
+        android:id="@+id/btnSuma"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="411dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="263dp"
+        android:scrollbarSize="10dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnResta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnResta"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="263dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnMulti"
+        app:layout_constraintStart_toEndOf="@+id/btnSuma"
+        app:layout_constraintTop_toBottomOf="@+id/denominador1" />
+
+    <Button
+        android:id="@+id/btnMulti"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="263dp"
+        android:text="*"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDiv"
+        app:layout_constraintStart_toEndOf="@+id/btnResta"
+        app:layout_constraintTop_toBottomOf="@+id/denominador2" />
+
+    <Button
+        android:id="@+id/btnDiv"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="411dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="263dp"
+        android:text="÷"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMulti"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
