@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText denoDos = findViewById(R.id.denominador2);
 
         //El resultado que se muestra en pantalla
-        final TextView salidaNume = findViewById(R.id.numSalida);
-        final TextView salidaDeno = findViewById(R.id.denSalida);
+
 
         //Botones de operaciones
         final Button btnSumar = findViewById(R.id.btnSuma);
@@ -31,44 +31,98 @@ public class MainActivity extends AppCompatActivity {
         final Button btnMultip = findViewById(R.id.btnMulti);
         final Button btnDivi = findViewById(R.id.btnDiv);
 
+        //Metodo sumar
         btnSumar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Se transforma de String a Integer
-                final int num1 = Integer.parseInt(numeUno.getText().toString());
-                final int num2 = Integer.parseInt(numeDos.getText().toString());
-                final int den1 = Integer.parseInt(denoUno.getText().toString());
-                final int den2 = Integer.parseInt(denoDos.getText().toString());
-                final int numeradorFinal = (den1*num1) + (den2*num2);
-                final int denominadorFinal = den1 * den2;
+                final int num1 = Integer.parseInt(String.valueOf(numeUno.getText()));
+                final int num2 = Integer.parseInt(String.valueOf(numeDos.getText()));
+                final int den1 = Integer.parseInt(String.valueOf(denoUno.getText()));
+                final int den2 = Integer.parseInt(String.valueOf(denoDos.getText()));
 
-                salidaNume.setText(0);
-                salidaDeno.setText(0);
+                int numFinal = (den1*num1) + (den2*num2);
+                int denoFinal = den1 * den2;
+
+                mostrar(numFinal, denoFinal);
+                //salidaNume.setText(numeradorFinal);
+                //salidaDeno.setText(denominadorFinal);
             }
         });
 
-/*
+        //Metodod restar
         btnRestar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final int num1 = Integer.parseInt(String.valueOf(numeUno.getText()));
+                final int num2 = Integer.parseInt(String.valueOf(numeDos.getText()));
+                final int den1 = Integer.parseInt(String.valueOf(denoUno.getText()));
+                final int den2 = Integer.parseInt(String.valueOf(denoDos.getText()));
 
+                int numFinal = ((num1*den2)-(den1*num2));
+                int denoFinal = den1 * den2;
+
+
+                mostrar(numFinal, denoFinal);
             }
         });
 
+        //Metodo multiplicar
         btnMultip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final int num1 = Integer.parseInt(String.valueOf(numeUno.getText()));
+                final int num2 = Integer.parseInt(String.valueOf(numeDos.getText()));
+                final int den1 = Integer.parseInt(String.valueOf(denoUno.getText()));
+                final int den2 = Integer.parseInt(String.valueOf(denoDos.getText()));
 
+                int numFinal = num1 * num2;
+                int denoFinal = den1 * den2;
+
+
+                mostrar(numFinal, denoFinal);
             }
         });
 
+        //Metodo dividir
         btnDivi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final int num1 = Integer.parseInt(String.valueOf(numeUno.getText()));
+                final int num2 = Integer.parseInt(String.valueOf(numeDos.getText()));
+                final int den1 = Integer.parseInt(String.valueOf(denoUno.getText()));
+                final int den2 = Integer.parseInt(String.valueOf(denoDos.getText()));
 
+                int numFinal = num1 * den2;
+                int denoFinal = num2 * den1;
+
+                mostrar(numFinal, denoFinal);
             }
         });
-*/
+
 
     }
+
+    private void mostrar(int num, int deno){
+        final TextView salidaNume = findViewById(R.id.numSalida);
+        final TextView salidaDeno = findViewById(R.id.denSalida);
+        int mcd = MCD(num, deno);
+
+        salidaNume.setText(num/mcd);
+        salidaDeno.setText(deno/mcd);
+    }
+
+    // a es el numerador y b es el denominador
+    public int MCD(int a, int b){
+        while(b>0){
+            if(a>b){
+                a = a-b;
+            }else{
+                b = b-a;
+            }
+        }
+        return a;
+    }
+
+
 }
